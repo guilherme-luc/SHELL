@@ -94,6 +94,3 @@ Invoke-RestMethod -Uri $WebhookUrl -Method Post -Headers $headers -Body $bodyCon
 
 # Tentando remover o arquivo ZIP
 Remove-File -filePath $zipPath
-
-# Saindo do Powershell
-exit
