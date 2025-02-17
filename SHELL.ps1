@@ -37,7 +37,7 @@ Compress-Archive -Path $sourcePath -DestinationPath $zipPath -Force
 $SMTPServer = "smtp.office365.com"
 $SMTPPort = 587
 $SMTPUsername = "williamattiny@outlook.com"
-$SMTPPassword = "oratoroeuaroupadoreideRoma"
+$SMTPPassword = "dkctcyeducrzaewc"
 
 # Criando a mensagem de e-mail
 $From = "williamattiny@outlook.com"
